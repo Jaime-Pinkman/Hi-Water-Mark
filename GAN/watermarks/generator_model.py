@@ -48,7 +48,7 @@ class ResidualBlock(nn.Module):
 
 class Block(nn.Module):
     def __init__(self, in_channels, out_channels, stride=2, act="relu"):
-        super.__init__()
+        super().__init__()
         self.conv = nn.Sequential(
             nn.Conv2d(in_channels, out_channels, 3, stride, 1, bias=False, padding_mode="reflect"),
             nn.BatchNorm2d(out_channels),
@@ -61,7 +61,7 @@ class Block(nn.Module):
 
 class Generator(nn.Module):
     def __init__(self, in_channels, features=64, num_residuals=9):
-        super(Generator, self).__init__()
+        super().__init__()
         self.initial_down = nn.Sequential(
             nn.Conv2d(in_channels, features, 7, 1, 3, bias=True, padding_mode="reflect"),
             nn.ReLU(inplace=True)
